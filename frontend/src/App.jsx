@@ -1,5 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './auth/ProtectedRoute';
+import LoginPage from './pages/auth/LoginPage';
+import RegisterPage from './pages/auth/RegisterPage';
 
 // Temporary pages: each one is replaced by the real page on its own branch
 function Placeholder({ title }) {
@@ -9,8 +11,8 @@ function Placeholder({ title }) {
 export default function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Placeholder title="Login" />} />
-      <Route path="/register" element={<Placeholder title="Register" />} />
+      <Route path="/login" element={<LoginPage />} />
+<Route path="/register" element={<RegisterPage />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Placeholder title="Dashboard" />} />

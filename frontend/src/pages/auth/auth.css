@@ -1,0 +1,9 @@
+.auth-page { max-width: 380px; margin: 60px auto; padding: 0 16px; }
+.auth-page h2 { text-align: center; }
+.auth-form { display: flex; flex-direction: column; gap: 12px; }
+.auth-form label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; text-align: left; }
+.auth-form input { padding: 8px; font-size: 15px; }
+.auth-form button { padding: 10px; font-size: 15px; cursor: pointer; }
+.auth-error { color: #c53030; }
+.auth-success { color: #2f855a; }
+.auth-link { text-align: center; margin-top: 12px; }
