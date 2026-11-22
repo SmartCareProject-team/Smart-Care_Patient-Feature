@@ -3,6 +3,9 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import ProfilePage from './pages/profile/ProfilePage';
+import AppointmentsPage from './pages/appointments/AppointmentsPage';
+import BookAppointmentPage from './pages/appointments/BookAppointmentPage';
+import EditAppointmentPage from './pages/appointments/EditAppointmentPage';
 
 // Temporary pages: each one is replaced by the real page on its own branch
 function Placeholder({ title }) {
@@ -18,9 +21,9 @@ export default function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Placeholder title="Dashboard" />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/appointments" element={<Placeholder title="My appointments" />} />
-        <Route path="/appointments/new" element={<Placeholder title="Book an appointment" />} />
-        <Route path="/appointments/:id/edit" element={<Placeholder title="Edit appointment" />} />
+        <Route path="/appointments" element={<AppointmentsPage />} />
+        <Route path="/appointments/new" element={<BookAppointmentPage />} />
+        <Route path="/appointments/:id/edit" element={<EditAppointmentPage />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
