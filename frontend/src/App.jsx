@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import ProtectedRoute from './auth/ProtectedRoute';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
+import ProfilePage from './pages/profile/ProfilePage';
 
 // Temporary pages: each one is replaced by the real page on its own branch
 function Placeholder({ title }) {
@@ -16,7 +17,7 @@ export default function App() {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Placeholder title="Dashboard" />} />
-        <Route path="/profile" element={<Placeholder title="Profile" />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/appointments" element={<Placeholder title="My appointments" />} />
         <Route path="/appointments/new" element={<Placeholder title="Book an appointment" />} />
         <Route path="/appointments/:id/edit" element={<Placeholder title="Edit appointment" />} />
