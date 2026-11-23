@@ -6,6 +6,7 @@ import ProfilePage from './pages/profile/ProfilePage';
 import AppointmentsPage from './pages/appointments/AppointmentsPage';
 import BookAppointmentPage from './pages/appointments/BookAppointmentPage';
 import EditAppointmentPage from './pages/appointments/EditAppointmentPage';
+import DashboardPage from './pages/dashboard/DashboardPage.jsx';
 
 // Temporary pages: each one is replaced by the real page on its own branch
 function Placeholder({ title }) {
@@ -19,8 +20,8 @@ export default function App() {
 <Route path="/register" element={<RegisterPage />} />
 
       <Route element={<ProtectedRoute />}>
-        <Route path="/" element={<Placeholder title="Dashboard" />} />
-        <Route path="/profile" element={<ProfilePage />} />
+       <Route path="/" element={<DashboardPage />} />
+<Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/appointments" element={<AppointmentsPage />} />
         <Route path="/appointments/new" element={<BookAppointmentPage />} />
         <Route path="/appointments/:id/edit" element={<EditAppointmentPage />} />

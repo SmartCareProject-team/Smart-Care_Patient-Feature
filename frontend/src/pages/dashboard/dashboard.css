@@ -1,0 +1,14 @@
+.dashboard { max-width: 900px; margin: 0 auto; padding: 24px; }
+.dashboard-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.dashboard-next-date { font-size: 1.3rem; font-weight: 600; }
+.dashboard-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat { text-align: center; }
+.stat-number { display: block; font-size: 2rem; font-weight: 700; margin-bottom: 6px; }
+.dashboard-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.dashboard-error { color: #b91c1c; }
+.badge { padding: 3px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+.badge.pending { background: #fef3c7; color: #92400e; }
+.badge.confirmed { background: #d1fae5; color: #065f46; }
+.badge.completed { background: #e5e7eb; color: #374151; }
+.badge.cancelled { background: #fee2e2; color: #991b1b; }
+@media (max-width: 600px) { .dashboard-stats { grid-template-columns: repeat(2, 1fr); } }
