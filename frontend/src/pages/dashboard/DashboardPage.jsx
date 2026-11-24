@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../auth/AuthContext';
 import { getAppointments } from '../../api/appointmentApi';
+import { getProfile } from '../../api/patientApi';
 import './dashboard.css';
 
 const STATUS = {
@@ -14,17 +14,19 @@ const STATUS = {
 const dateOf = (a) => new Date(a.dateHeure);
 const formatDate = (d) =>
   `${d.toLocaleDateString('en-GB')} ${d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}`;
-const doctorOf = (a) => a.medecinNom || a.medecin?.nom || `Doctor #${a.medecinId}`;
 
 export default function DashboardPage() {
-  const { user } = useAuth();
   const [appointments, setAppointments] = useState([]);
+  const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    getAppointments()
-      .then((list) => setAppointments(list))
+    Promise.all([getAppointments(), getProfile().catch(() => null)])
+      .then(([list, p]) => {
+        setAppointments(list);
+        setProfile(p);
+      })
       .catch(() => setError('Could not load your appointments.'))
       .finally(() => setLoading(false));
   }, []);
@@ -44,7 +46,7 @@ export default function DashboardPage() {
       .sort((a, b) => dateOf(a) - dateOf(b))[0];
   }, [appointments]);
 
-  const name = user?.prenom || user?.firstName || user?.name || '';
+  const name = profile?.prenom || '';
 
   return (
     <div className="dashboard">
@@ -60,7 +62,7 @@ export default function DashboardPage() {
             {next ? (
               <>
                 <p className="dashboard-next-date">{formatDate(dateOf(next))}</p>
-                <p>{doctorOf(next)}</p>
+                <p>{next.medecinNom}</p>
                 <p>{next.motif}</p>
                 <span className={`badge ${STATUS[next.status].cls}`}>{STATUS[next.status].label}</span>
               </>
