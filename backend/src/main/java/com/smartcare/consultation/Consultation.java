@@ -42,4 +42,7 @@ public class Consultation {
     public String getDiagnosis() { return diagnosis; }
     public String getNotes() { return notes; }
     public String getRequestedExams() { return requestedExams; }
+    public void setAppointment(Appointment appointment) { this.appointment = appointment; }
+    public void setRoomName(String roomName) { this.roomName = roomName; }
+    public void setStartedAt(LocalDateTime startedAt) { this.startedAt = startedAt; }
 }
