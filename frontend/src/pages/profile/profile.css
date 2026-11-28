@@ -1,0 +1,11 @@
+.profile-page { max-width: 520px; margin: 40px auto; padding: 0 16px; }
+.profile-page h2 { text-align: center; }
+.profile-form { display: flex; flex-direction: column; gap: 12px; }
+.profile-form label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; text-align: left; }
+.profile-form input,
+.profile-form select,
+.profile-form textarea { padding: 8px; font-size: 15px; font-family: inherit; }
+.profile-form textarea { min-height: 80px; resize: vertical; }
+.profile-form button { padding: 10px; font-size: 15px; cursor: pointer; }
+.profile-error { color: #c53030; }
+.profile-success { color: #2f855a; }
