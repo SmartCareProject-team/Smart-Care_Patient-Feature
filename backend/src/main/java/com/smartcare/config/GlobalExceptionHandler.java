@@ -35,4 +35,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleConflict(ConflictException ex) {
         return build(HttpStatus.CONFLICT, ex.getMessage());
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleNotFound(NotFoundException ex) {
+        return build(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
 }
